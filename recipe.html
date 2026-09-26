@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Basil Minced Pork 九層塔豬碎肉</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body>
+
+<main class="app">
+
+  <div
+    class="back"
+    onclick="window.location.href='index.html'"
+  >
+    ← Back / 返回
+  </div>
+
+
+  <div class="recipe-hero">
+    🌿
+  </div>
+
+
+<h1 id="recipeName"></h1>
+
+<div class="chinese-name" id="recipeNameZh"></div>
+
+
+<div class="tags" id="recipeTags"></div>
+
+<button class="edit-recipe-button" id="editRecipeButton">
+  ✏️ Edit Recipe / 編輯食譜
+</button>
+
+<div class="edit-panel" id="editPanel">
+
+  <div class="edit-header">
+    <div>
+      <h2>Edit Recipe</h2>
+      <div>編輯食譜</div>
+    </div>
+
+    <button class="close-edit" id="closeEdit">×</button>
+  </div>
+
+  <div class="edit-section">
+
+    <label>
+      Recipe name
+      <span>食譜名稱</span>
+    </label>
+
+    <input type="text" id="editNameEn">
+
+    <label>
+      Chinese name
+      <span>中文名稱</span>
+    </label>
+
+    <input type="text" id="editNameZh">
+
+  </div>
+
+  <h3>Ingredients / 食材</h3>
+
+  <div id="editIngredients"></div>
+
+  <button class="add-ingredient-button" id="addIngredientButton">
+    + Add Ingredient / 新增食材
+  </button>
+  
+<h3>Method / 步驟</h3>
+
+<div id="editMethod"></div>
+
+<button class="add-ingredient-button" id="addStepButton">
+  + Add Step / 新增步驟
+</button>
+
+  <button class="save-recipe-button" id="saveRecipeButton">
+    Save Changes / 儲存變更
+  </button>
+
+</div>
+
+  <div class="language-toggle">
+
+    <button>
+      English
+    </button>
+
+    <button>
+      中文
+    </button>
+
+    <button class="selected">
+      Both 兩種
+    </button>
+
+  </div>
+
+
+  <h2>🌿 Ingredients 食材</h2>
+
+
+<div id="ingredientsList"></div>
+
+
+<button class="adjust-button" id="adjustButton">
+  ⚖️ Adjust Recipe / 調整份量
+</button>
+
+<div class="adjust-panel" id="adjustPanel">
+
+  <div class="adjust-header">
+    <div>
+      <h2>Adjust Recipe</h2>
+      <div>調整份量</div>
+    </div>
+
+    <button class="close-adjust" id="closeAdjust">×</button>
+  </div>
+
+  <div class="adjust-options">
+
+    <button class="adjust-option" id="servingsOption">
+      <span class="option-icon">👥</span>
+      <strong>Servings</strong>
+      <small>調整份量</small>
+    </button>
+
+    <button class="adjust-option" id="scaleOption">
+      <span class="option-icon">×</span>
+      <strong>Scale</strong>
+      <small>調整倍數</small>
+    </button>
+
+    <button class="adjust-option" id="useWhatIHave">
+      <span class="option-icon">🥣</span>
+      <strong>Use what I have</strong>
+      <small>按現有材料調整</small>
+    </button>
+
+</div>
+
+<div id="adjustContent"></div>
+
+  </div>
+
+</div>
+
+
+  <h2>👩🏻‍🍳 Method 步驟</h2>
+
+
+<div id="methodList"></div>
+
+
+  <div class="original">
+
+    <strong>📖 Original Recipe / 原食譜</strong>
+
+    <p>
+      Your original handwritten recipe photo will appear here.
+    </p>
+
+  </div>
+
+</main>
+<script src="recipes.js"></script>
+<script src="script.js"></script>
+
+</body>
+
+</html>

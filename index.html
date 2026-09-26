@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Recipe Book 我的食譜</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: #f7f1e6;
+      color: #38372f;
+      font-family: Georgia, "Times New Roman", serif;
+    }
+
+    .app {
+      max-width: 500px;
+      margin: auto;
+      min-height: 100vh;
+      padding: 30px 22px 100px;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 32px;
+      font-weight: 500;
+    }
+
+    .chinese-title {
+      margin-top: 5px;
+      font-size: 20px;
+    }
+
+    .leaf {
+      font-size: 38px;
+    }
+
+    .search {
+      width: 100%;
+      margin: 25px 0;
+      padding: 14px 16px;
+      border: none;
+      border-radius: 14px;
+      background: #ebe3d5;
+      font-size: 15px;
+      outline: none;
+    }
+
+    h2 {
+      font-size: 20px;
+      font-weight: 500;
+      margin-top: 8px;
+    }
+
+    .categories {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+
+    .category {
+      background: #efe2cd;
+      border-radius: 16px;
+      padding: 20px 8px;
+      text-align: center;
+    }
+
+    .category-icon {
+      font-size: 28px;
+      margin-bottom: 8px;
+    }
+
+    .category span {
+      display: block;
+      font-size: 13px;
+      margin-top: 4px;
+      opacity: 0.7;
+    }
+
+    .section-title {
+      margin-top: 32px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .see-all {
+      font-size: 13px;
+      opacity: 0.65;
+    }
+
+    .recipe-card {
+      margin-top: 12px;
+      background: #fffaf2;
+      border-radius: 18px;
+      padding: 17px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 3px 12px rgba(0,0,0,0.04);
+      cursor: pointer;
+    }
+
+    .recipe-emoji {
+      width: 65px;
+      height: 65px;
+      border-radius: 15px;
+      background: #e8dcc7;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 34px;
+      margin-right: 14px;
+    }
+
+    .recipe-info {
+      flex: 1;
+    }
+
+    .recipe-name {
+      font-size: 17px;
+    }
+
+    .recipe-chinese {
+      font-size: 15px;
+      margin-top: 4px;
+    }
+
+    .recipe-tag {
+      display: inline-block;
+      margin-top: 8px;
+      padding: 4px 9px;
+      background: #e1e4d2;
+      color: #586046;
+      border-radius: 20px;
+      font-size: 11px;
+    }
+
+    .heart {
+      font-size: 22px;
+      color: #bd6657;
+    }
+
+    nav {
+      position: fixed;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100%;
+      max-width: 500px;
+      padding: 12px 15px 20px;
+      background: rgba(255,250,242,0.96);
+      display: flex;
+      justify-content: space-around;
+      border-top: 1px solid #e4dccf;
+    }
+
+    nav div {
+      text-align: center;
+      font-size: 11px;
+    }
+
+    nav .icon {
+      display: block;
+      font-size: 21px;
+      margin-bottom: 3px;
+    }
+
+    .active {
+      color: #65704d;
+      font-weight: bold;
+    }
+  </style>
+</head>
+
+<body>
+
+  <main class="app">
+
+    <header>
+      <div>
+        <h1>My Recipe Book</h1>
+        <div class="chinese-title">我的食譜</div>
+      </div>
+
+      <div class="leaf">🌿</div>
+    </header>
+
+    <input
+      class="search"
+      type="text"
+      placeholder="🔍  Search recipes... 搜尋食譜..."
+    >
+
+    <h2>Categories 分類</h2>
+
+    <section class="categories">
+
+      <div class="category">
+        <div class="category-icon">🥟</div>
+        中式
+        <span>Chinese</span>
+      </div>
+
+      <div class="category">
+        <div class="category-icon">🍣</div>
+        日式
+        <span>Japanese</span>
+      </div>
+
+      <div class="category">
+        <div class="category-icon">🌶️</div>
+        泰式
+        <span>Thai</span>
+      </div>
+
+      <div class="category">
+        <div class="category-icon">🍰</div>
+        烘焙
+        <span>Baking</span>
+      </div>
+
+      <div class="category">
+        <div class="category-icon">🍓</div>
+        甜品
+        <span>Desserts</span>
+      </div>
+
+      <div class="category">
+        <div class="category-icon">🍲</div>
+        主菜
+        <span>Mains</span>
+      </div>
+
+      <div class="category">
+        <div class="category-icon">🍡</div>
+        小食
+        <span>Snacks</span>
+      </div>
+
+      <div class="category">
+        <div class="category-icon">🍵</div>
+        飲品
+        <span>Drinks</span>
+      </div>
+
+      <div class="category">
+        <div class="category-icon">🍄</div>
+        其他
+        <span>Others</span>
+      </div>
+
+    </section>
+
+    <div class="section-title">
+      <h2>Recently Added 最近新增</h2>
+      <span class="see-all">See All 查看全部 ›</span>
+    </div>
+
+   <div class="recipe-card" onclick="window.location.href='recipe.html'">
+
+      <div class="recipe-emoji">🌿</div>
+
+      <div class="recipe-info">
+        <div class="recipe-name">Basil Minced Pork</div>
+        <div class="recipe-chinese">九層塔豬碎肉</div>
+        <span class="recipe-tag">Thai 泰式</span>
+      </div>
+
+      <div class="heart">♥</div>
+
+    </div>
+
+  </main>
+
+  <nav>
+    <div class="active">
+      <span class="icon">⌂</span>
+      Home<br>主頁
+    </div>
+
+    <div>
+      <span class="icon">▤</span>
+      Recipes<br>食譜
+    </div>
+
+    <div>
+      <span class="icon">♡</span>
+      Favourites<br>收藏
+    </div>
+
+    <div>
+      <span class="icon">＋</span>
+      Add<br>新增
+    </div>
+  </nav>
+
+</body>
+</html>

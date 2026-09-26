@@ -1,0 +1,641 @@
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: #f7f1e6;
+      color: #38372f;
+      font-family: Georgia, "Times New Roman", serif;
+    }
+
+    .app {
+      max-width: 500px;
+      margin: auto;
+      min-height: 100vh;
+      padding: 25px 22px 80px;
+    }
+
+    .back {
+      font-size: 16px;
+      margin-bottom: 25px;
+      cursor: pointer;
+      color: #65704d;
+    }
+
+    .recipe-hero {
+      background: #e8dcc7;
+      height: 220px;
+      border-radius: 22px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 80px;
+    }
+
+    h1 {
+      font-size: 30px;
+      margin-bottom: 5px;
+      font-weight: 500;
+    }
+
+    .chinese-name {
+      font-size: 22px;
+      margin-bottom: 18px;
+    }
+
+    .tags {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .tag {
+      background: #e1e4d2;
+      color: #586046;
+      padding: 6px 11px;
+      border-radius: 20px;
+      font-size: 12px;
+    }
+
+    .language-toggle {
+      display: flex;
+      background: #ebe3d5;
+      padding: 4px;
+      border-radius: 14px;
+      margin: 25px 0;
+    }
+
+    .language-toggle button {
+      flex: 1;
+      border: none;
+      background: transparent;
+      padding: 10px;
+      border-radius: 11px;
+      cursor: pointer;
+      font-family: inherit;
+    }
+
+    .language-toggle .selected {
+      background: #65704d;
+      color: white;
+    }
+
+    h2 {
+      margin-top: 30px;
+      font-size: 22px;
+      font-weight: 500;
+    }
+
+    .ingredient {
+      display: flex;
+      align-items: center;
+      padding: 11px 0;
+      border-bottom: 1px solid #e2dacd;
+    }
+
+    .ingredient input {
+      margin-right: 12px;
+      width: 18px;
+      height: 18px;
+    }
+
+    .ingredient-name {
+      flex: 1;
+    }
+
+    .ingredient-cn {
+      min-width: 100px;
+      text-align: right;
+      color: #69675f;
+    }
+
+    .adjust-button {
+      width: 100%;
+      margin-top: 22px;
+      padding: 14px;
+      border: none;
+      border-radius: 14px;
+      background: #65704d;
+      color: white;
+      font-size: 15px;
+      font-family: inherit;
+      cursor: pointer;
+    }
+
+    .step {
+      background: #fffaf2;
+      border-radius: 15px;
+      padding: 15px;
+      margin-bottom: 12px;
+    }
+
+    .step-number {
+      display: inline-flex;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: #65704d;
+      color: white;
+      justify-content: center;
+      align-items: center;
+      margin-right: 8px;
+    }
+
+    .step-cn {
+      display: block;
+      margin: 8px 0 0 38px;
+      color: #777268;
+      font-size: 14px;
+    }
+
+    .original {
+      margin-top: 35px;
+      background: #efe2cd;
+      border-radius: 18px;
+      padding: 20px;
+    }
+
+    .original p {
+      margin-bottom: 0;
+      font-size: 14px;
+      color: #706b62;
+    }
+
+    .adjust-panel {
+  display: none;
+  margin-top: 15px;
+  padding: 20px;
+  background: #fffaf2;
+  border-radius: 18px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.06);
+}
+
+.adjust-panel.open {
+  display: block;
+}
+
+.adjust-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.adjust-header h2 {
+  margin: 0 0 4px;
+}
+
+.close-adjust {
+  border: none;
+  background: transparent;
+  font-size: 30px;
+  color: #65704d;
+  cursor: pointer;
+}
+
+.adjust-options {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.adjust-option {
+  border: 1px solid #e2dacd;
+  background: #f7f1e6;
+  border-radius: 14px;
+  padding: 15px;
+  text-align: left;
+  font-family: inherit;
+  cursor: pointer;
+}
+
+.adjust-option:hover {
+  background: #efe2cd;
+}
+
+.adjust-option strong,
+.adjust-option small {
+  display: block;
+}
+
+.adjust-option strong {
+  margin-top: 5px;
+  font-size: 16px;
+}
+
+.adjust-option small {
+  margin-top: 3px;
+  color: #777268;
+}
+
+.option-icon {
+  font-size: 22px;
+}
+
+.ingredient-calculator {
+  display: none;
+  margin-top: 15px;
+  padding: 20px;
+  background: #f7f1e6;
+  border-radius: 16px;
+}
+
+.ingredient-calculator.open {
+  display: block;
+}
+
+.ingredient-calculator h3 {
+  margin: 0;
+  font-size: 21px;
+}
+
+.calculator-cn {
+  margin-top: 5px;
+  color: #777268;
+}
+
+.calculator-help {
+  line-height: 1.5;
+  color: #69675f;
+}
+
+.ingredient-calculator label {
+  display: block;
+  margin: 18px 0 7px;
+  font-weight: bold;
+}
+
+.ingredient-calculator select,
+.ingredient-calculator input {
+  width: 100%;
+  padding: 13px;
+  border: 1px solid #ddd3c3;
+  border-radius: 12px;
+  background: #fffaf2;
+  font-family: inherit;
+  font-size: 15px;
+}
+
+.calculate-button {
+  width: 100%;
+  margin-top: 18px;
+  padding: 14px;
+  border: none;
+  border-radius: 12px;
+  background: #65704d;
+  color: white;
+  font-family: inherit;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.calculation-result {
+  display: none;
+  margin-top: 20px;
+  padding: 18px;
+  background: #fffaf2;
+  border-radius: 14px;
+  line-height: 1.8;
+}
+
+.calculation-result.show {
+  display: block;
+}
+
+.result-title {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+#adjustContent {
+  margin-top: 15px;
+}
+
+.quantity-message {
+  padding: 18px;
+  background: #efe2cd;
+  border-radius: 14px;
+  line-height: 1.5;
+}
+
+.quantity-message strong {
+  color: #586046;
+}
+
+.quantity-message p {
+  margin: 8px 0;
+}
+
+.quantity-message-cn {
+  color: #777268;
+  font-size: 14px;
+}
+
+.edit-recipe-button {
+  margin-top: 16px;
+  padding: 10px 16px;
+
+  border: 1px solid #65704d;
+  border-radius: 20px;
+
+  background: transparent;
+  color: #65704d;
+
+  font-family: inherit;
+  font-size: 14px;
+
+  cursor: pointer;
+}
+
+.edit-recipe-button:hover {
+  background: #e1e4d2;
+}
+
+.edit-panel {
+  display: none;
+  margin-top: 18px;
+  padding: 20px;
+  background: #fffaf2;
+  border-radius: 18px;
+}
+
+.edit-panel.open {
+  display: block;
+}
+
+.edit-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 25px;
+}
+
+.edit-header h2 {
+  margin: 0 0 4px;
+}
+
+.close-edit {
+  border: none;
+  background: transparent;
+  color: #65704d;
+  font-size: 30px;
+  cursor: pointer;
+}
+
+.edit-section label {
+  display: block;
+  margin: 15px 0 7px;
+  font-weight: bold;
+}
+
+.edit-section label span {
+  color: #777268;
+  font-weight: normal;
+  margin-left: 5px;
+}
+
+.edit-section input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ddd3c3;
+  border-radius: 10px;
+  background: white;
+  font-family: inherit;
+  font-size: 15px;
+}
+
+.edit-panel h3 {
+  margin-top: 28px;
+}
+
+.edit-ingredient-row {
+  padding: 15px;
+  margin-bottom: 12px;
+  background: #f7f1e6;
+  border-radius: 14px;
+}
+
+.edit-ingredient-names {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.edit-ingredient-quantity {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.edit-ingredient-row input,
+.edit-ingredient-row select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd3c3;
+  border-radius: 9px;
+  background: white;
+  font-family: inherit;
+}
+
+.add-ingredient-button {
+  width: 100%;
+  padding: 12px;
+  border: 1px dashed #65704d;
+  border-radius: 12px;
+  background: transparent;
+  color: #65704d;
+  font-family: inherit;
+  cursor: pointer;
+}
+
+.save-recipe-button {
+  width: 100%;
+  margin-top: 20px;
+  padding: 14px;
+  border: none;
+  border-radius: 12px;
+  background: #65704d;
+  color: white;
+  font-family: inherit;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.delete-ingredient-button {
+  margin-top: 10px;
+  border: none;
+  background: transparent;
+  color: #a05e54;
+  font-family: inherit;
+  cursor: pointer;
+  padding: 4px 0;
+}
+
+.delete-ingredient-button:hover {
+  text-decoration: underline;
+}
+
+.edit-step-row {
+  padding: 15px;
+  margin-bottom: 12px;
+  background: #f7f1e6;
+  border-radius: 14px;
+}
+
+.edit-step-number {
+  margin-bottom: 10px;
+  font-weight: bold;
+  color: #586046;
+}
+
+.edit-step-row textarea {
+  display: block;
+  width: 100%;
+  min-height: 80px;
+  margin-bottom: 8px;
+  padding: 11px;
+
+  border: 1px solid #ddd3c3;
+  border-radius: 9px;
+
+  background: white;
+  font-family: inherit;
+  font-size: 14px;
+
+  resize: vertical;
+}
+
+.delete-step-button {
+  border: none;
+  background: transparent;
+  color: #a05e54;
+  font-family: inherit;
+  cursor: pointer;
+  padding: 4px 0;
+}
+
+.scale-panel {
+  padding: 18px;
+  background: #f7f1e6;
+  border-radius: 14px;
+}
+
+.scale-panel p {
+  color: #777268;
+}
+
+.scale-buttons {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 7px;
+  margin: 15px 0 20px;
+}
+
+.scale-buttons button {
+  padding: 10px 4px;
+  border: 1px solid #65704d;
+  border-radius: 10px;
+  background: #fffaf2;
+  color: #586046;
+  font-family: inherit;
+  cursor: pointer;
+}
+
+.scale-buttons button:hover {
+  background: #e1e4d2;
+}
+
+.custom-scale-label {
+  display: block;
+  margin-bottom: 7px;
+}
+
+#customScale {
+  width: 100%;
+  padding: 11px;
+  border: 1px solid #ddd3c3;
+  border-radius: 10px;
+  font-family: inherit;
+}
+
+.calculate-scale-button {
+  width: 100%;
+  margin-top: 9px;
+  padding: 11px;
+  border: none;
+  border-radius: 10px;
+  background: #65704d;
+  color: white;
+  font-family: inherit;
+  cursor: pointer;
+}
+
+.scaled-result {
+  margin-top: 20px;
+  padding-top: 5px;
+}
+
+.scaled-ingredient {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  padding: 9px 0;
+  border-bottom: 1px solid #e2dacd;
+}
+
+.scaled-ingredient strong {
+  white-space: nowrap;
+  color: #586046;
+}
+
+.use-have-panel {
+  padding: 18px;
+  background: #f7f1e6;
+  border-radius: 14px;
+}
+
+.use-have-cn {
+  margin-top: 4px;
+  color: #777268;
+}
+
+.use-have-panel p {
+  color: #69675f;
+  line-height: 1.5;
+}
+
+.use-have-panel label {
+  display: block;
+  margin: 16px 0 7px;
+  font-weight: bold;
+}
+
+.use-have-panel select,
+.use-have-panel input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ddd3c3;
+  border-radius: 10px;
+  background: #fffaf2;
+  font-family: inherit;
+  font-size: 14px;
+}
+
+#calculateAvailable {
+  width: 100%;
+  margin-top: 14px;
+  padding: 12px;
+  border: none;
+  border-radius: 10px;
+  background: #65704d;
+  color: white;
+  font-family: inherit;
+  cursor: pointer;
+}
+
+.available-result {
+  margin-top: 20px;
+}
