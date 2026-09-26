@@ -14,6 +14,12 @@ currentRecipe.category = recipes[0].category;
 // Remove old recipe type system
 delete currentRecipe.type;
 
+// Update the saved copy with the new category system
+localStorage.setItem(
+  "myRecipeBook_" + currentRecipe.id,
+  JSON.stringify(currentRecipe)
+);
+
 // Recipe title
 document.getElementById("recipeName").textContent =
   currentRecipe.name.en;
