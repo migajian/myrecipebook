@@ -8,6 +8,12 @@ if (savedRecipe) {
   currentRecipe = JSON.parse(savedRecipe);
 }
 
+// Keep category information updated from recipes.js
+currentRecipe.category = recipes[0].category;
+
+// Remove old recipe type system
+delete currentRecipe.type;
+
 // Recipe title
 document.getElementById("recipeName").textContent =
   currentRecipe.name.en;
@@ -21,11 +27,9 @@ const recipeTags = document.getElementById("recipeTags");
 
 recipeTags.innerHTML = `
   <span class="tag">
-    ${currentRecipe.category.en} ${currentRecipe.category.zh}
-  </span>
-
-  <span class="tag">
-    ${currentRecipe.type.en} ${currentRecipe.type.zh}
+    ${currentRecipe.category.icon}
+    ${currentRecipe.category.en}
+    ${currentRecipe.category.zh}
   </span>
 `;
 

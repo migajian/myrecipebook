@@ -1,3 +1,48 @@
+const categories = [
+  {
+    id: "veg",
+    en: "Veg",
+    zh: "蔬菜",
+    icon: "🥬"
+  },
+  {
+    id: "pork",
+    en: "Pork",
+    zh: "豬肉",
+    icon: "🐷"
+  },
+  {
+    id: "chicken",
+    en: "Chicken",
+    zh: "雞肉",
+    icon: "🐔"
+  },
+  {
+    id: "lamb",
+    en: "Lamb",
+    zh: "羊肉",
+    icon: "🐑"
+  },
+  {
+    id: "beef",
+    en: "Beef",
+    zh: "牛肉",
+    icon: "🐮"
+  },
+  {
+    id: "drinks",
+    en: "Drinks",
+    zh: "飲品",
+    icon: "🥤"
+  },
+  {
+    id: "dessert",
+    en: "Dessert",
+    zh: "甜點",
+    icon: "🍰"
+  }
+];
+
 const recipes = [
   {
     id: "basil-minced-pork",
@@ -7,15 +52,12 @@ const recipes = [
       zh: "九層塔豬碎肉"
     },
 
-    category: {
-      en: "Thai",
-      zh: "泰式"
-    },
-
-    type: {
-      en: "Main",
-      zh: "主菜"
-    },
+category: {
+  id: "pork",
+  en: "Pork",
+  zh: "豬肉",
+  icon: "🐷"
+},
 
     favourite: true,
 

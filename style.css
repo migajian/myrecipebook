@@ -639,3 +639,42 @@
 .available-result {
   margin-top: 20px;
 }
+
+.categories-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+.category-card {
+  border: none;
+  border-radius: 16px;
+  background: #fffaf2;
+  padding: 18px 12px;
+  font-family: inherit;
+  color: #38372f;
+  cursor: pointer;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+}
+
+.category-card:hover {
+  background: #efe2cd;
+}
+
+.category-icon {
+  font-size: 28px;
+  margin-bottom: 5px;
+}
+
+.category-card span:not(.category-icon) {
+  font-size: 16px;
+}
+
+.category-card small {
+  color: #777268;
+  font-size: 13px;
+}
